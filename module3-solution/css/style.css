@@ -1,0 +1,73 @@
+
+* {
+    box-sizing: border-box;
+    font-family: "Lucida Console", "Courier New", monospace;
+    margin: 0;
+    padding: 0;
+}
+h1, h2 {
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    background-color: #ABABAB;
+    border-bottom: 1px solid #000000;
+}
+.navbar a {
+    color: black;
+}
+.navbar-brand {
+    height: auto;
+    padding: 10px 35px;
+}
+.navbar-brand h1 { 
+  font-size: 4vw;
+  color: black;
+}
+.navbar-toggle {
+    border: 1px solid #000000;
+    background-color: #000000;
+}
+.navbar-toggle:hover {
+    border: 1px solid #000000;
+    background-color: #ABABAB;
+}
+.menu-title {
+    font-size: 175%;
+    margin-bottom: 20px;
+}
+.panel-heading {
+    border-radius: 0;
+    border: 1px solid black;
+    border-bottom: 0;
+}
+.panel-title {
+    font-size: 125%;
+}
+.panel-body {
+    padding: 10px;
+    border: 1px solid #000000;
+    background-color: #ABABAB;
+    height: 700px;
+    overflow: hidden;
+}
+.panel-body:hover {
+    overflow-y: scroll;
+    cursor: n-resize;
+}
+.red {
+    background-color: #E8AAAA;
+}
+.green {
+    background-color: #81BD8C;
+}
+.blue {
+    background-color: #80A5C7;
+}
+
+@media (max-width: 767px) {
+  .navbar-brand h1 {
+    padding-top: 5px;
+    font-size: 6vw;
+  }
+}
