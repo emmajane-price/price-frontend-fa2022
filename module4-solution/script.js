@@ -49,6 +49,9 @@ WARNING!!! WARNING!!!
   }
   var namesWithGreeting = names.map(getNameWithGreeting);
 
+  namesWithGreeting.forEach(name => {
+    console.log(name);
+  });
   
   // STEP 14:
   // use the reduce function to create 2 separate arrays: one with 
@@ -97,6 +100,5 @@ WARNING!!! WARNING!!!
     } else {
       helloSpeaker.speak(names[i]);
     }
-    console.log(namesWithGreeting[i])
   }
 })();
