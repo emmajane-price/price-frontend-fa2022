@@ -150,8 +150,8 @@ dc.loadAboutSnippet = function () {
         } else {
           aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star-o");
         }
-        insertHtml("#main-content", aboutHtml);
       }
+      insertHtml("#main-content", aboutHtml);
     },
     false);
 };
