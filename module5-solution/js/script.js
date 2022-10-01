@@ -137,6 +137,17 @@ function chooseRandomCategory (categories) {
 }
 
 
+// Load the about snippet
+dc.loadAboutSnippet = function () {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    homeHtmlUrl,
+    function() {
+      
+    });
+};
+
+
 // Load the menu categories view
 dc.loadMenuCategories = function () {
   showLoading("#main-content");
@@ -155,6 +166,10 @@ dc.loadMenuItems = function (categoryShort) {
     buildAndShowMenuItemsHTML);
 };
 
+
+function createRandomNumber () {
+  return Math.floor(Math.random() * 4) + 1;
+}
 
 // Builds HTML for the categories page based on the data
 // from the server
