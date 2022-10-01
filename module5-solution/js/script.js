@@ -144,11 +144,11 @@ dc.loadAboutSnippet = function () {
     aboutHtml,
     function(aboutHtml) {
       var randomStarRating = createRandomNumber();
-      for(var i=0; i<5; i++) {
+      for(var i=1; i<=5; i++) {
         if (i <= randomStarRating) {
-          insertProperty(aboutHtml, "class" + i, "fa fa-star");
+          aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star");
         } else {
-          insertProperty(aboutHtml, "class" + i, "fa fa-star-o");
+          aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star-o");
         }
         insertHtml("#main-content", aboutHtml);
       }
