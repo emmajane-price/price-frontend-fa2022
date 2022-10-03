@@ -46,6 +46,21 @@ var insertProperty = function (string, propName, propValue) {
   return string;
 };
 
+// Remove the class 'active' from home and switch to About button
+var switchAboutToActive = function () {
+  // Remove 'active' from home button
+  var classes = document.querySelector("#navHomeButton").className;
+  classes = classes.replace(new RegExp("active", "g"), "");
+  document.querySelector("#navHomeButton").className = classes;
+
+  // Add 'active' to about button if not already there
+  classes = document.querySelector("#navAboutButton").className;
+  if (classes.indexOf("active") === -1) {
+    classes += " active";
+    document.querySelector("#navAboutButton").className = classes;
+  }
+};
+
 // Remove the class 'active' from home and switch to Menu button
 var switchMenuToActive = function () {
   // Remove 'active' from home button
@@ -136,26 +151,14 @@ function chooseRandomCategory (categories) {
   return categories[randomArrayIndex];
 }
 
-
 // Load the about snippet
 dc.loadAboutSnippet = function () {
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
     aboutHtml,
-    function(aboutHtml) {
-      var randomStarRating = createRandomNumber();
-      for(var i=1; i<=5; i++) {
-        if (i <= randomStarRating) {
-          aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star");
-        } else {
-          aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star-o");
-        }
-      }
-      insertHtml("#main-content", aboutHtml);
-    },
+    buildAboutPage,
     false);
 };
-
 
 // Load the menu categories view
 dc.loadMenuCategories = function () {
@@ -175,6 +178,19 @@ dc.loadMenuItems = function (categoryShort) {
     buildAndShowMenuItemsHTML);
 };
 
+// Builds HTML for the about page based on a random number
+function buildAboutPage (aboutHtml) {
+  var randomStarRating = createRandomNumber();
+  switchAboutToActive();
+  for(var i=1; i<=5; i++) {
+    if (i <= randomStarRating) {
+      aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star");
+    } else {
+      aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star-o");
+    }
+  }
+  insertHtml("#main-content", aboutHtml);
+}
 
 function createRandomNumber () {
   return Math.floor(Math.random() * 4) + 1;
