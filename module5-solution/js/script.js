@@ -189,6 +189,7 @@ function buildAboutPage (aboutHtml) {
       aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star-o");
     }
   }
+  aboutHtml = insertProperty(aboutHtml, "ratingText", randomStarRating + "-star rating");
   insertHtml("#main-content", aboutHtml);
 }
 
