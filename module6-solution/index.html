@@ -11,25 +11,24 @@
       .message { font-size: 1.3em; font-weight: bold; }
     </style>
   </head>
-<body>
-   <div class="container">
-     <h1>Lunch Checker</h1>
-
-         <div class="form-group"
-              ng-controller="LunchCheckController">
-             <input id="lunch-menu" 
-                    ng-model="food"
-                    type="text"
-                    placeholder="list comma separated dishes you usually have for lunch"
-                    class="form-control">
-         </div>
-         <div class="form-group">
-             <button class="btn btn-default" ng-click="checkIfTooMuch(food)">Check If Too Much</button>
-         </div>
-         <div class="form-group message">
+  <body>
+    <div class="container">
+      <h1>Lunch Checker</h1>
+      <div ng-controller="LunchCheckController">
+        <div class="form-group">
+          <input id="lunch-menu" 
+                ng-model="food"
+                type="text"
+                placeholder="list comma separated dishes you usually have for lunch"
+                class="form-control">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-default" ng-click="checkIfTooMuch(food)">Check If Too Much</button>
+        </div>
+        <div class="form-group message">
           {{outputMessage}}
-         </div>
-   </div>
-
-</body>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
