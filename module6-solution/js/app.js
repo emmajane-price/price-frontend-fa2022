@@ -8,7 +8,7 @@ LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope) {
   $scope.food = "";
   $scope.outputMessage = "";
-  $scope.outputColor = "";
+  $scope.outputColor = "nothing";
 
   $scope.checkIfTooMuch = function(food) {
     var foodList = food.split(',').filter(x => x !== '');
