@@ -8,6 +8,7 @@ LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope) {
   $scope.food = "";
   $scope.outputMessage = "";
+  $scope.outputColor = "red";
 
   $scope.checkIfTooMuch = function(food) {
     var foodList = food.split(',').filter(x => x !== '');
@@ -15,8 +16,10 @@ function LunchCheckController($scope) {
       $scope.outputMessage = "Please enter data first";
     } else if (foodList.length <= 3) {
       $scope.outputMessage = "Enjoy!";
+      $scope.outputColor = "green";
     } else {
       $scope.outputMessage = "Too much!";
+      $scope.outputColor = "green";
     }
   }
 }
