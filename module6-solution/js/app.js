@@ -12,7 +12,7 @@ function LunchCheckController($scope) {
 
   $scope.checkIfTooMuch = function(food) {
     // does not count empty values as an item
-    var foodList = food.split(',').filter(x => x !== '' && x !== "");
+    var foodList = food.split(',').filter(x => x !== '');
     if (foodList.length === 0) {
       $scope.outputMessage = "Please enter data first";
       $scope.outputColor = "red";
