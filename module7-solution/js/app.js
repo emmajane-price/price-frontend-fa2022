@@ -4,7 +4,8 @@
 angular.module('ShoppingListCheckOff', [])
     .controller('ToBuyController', ToBuyController)
     .controller('AlreadyBoughtController', AlreadyBoughtController)
-    .service('ShoppingListCheckOffService', ShoppingListCheckOffService);
+    .service('ShoppingListCheckOffService', ShoppingListCheckOffService)
+    .filter('tripleDollar', TripleDollarFilter);
 
 ToBuyController.$inject = ['ShoppingListCheckOffService'];
 function ToBuyController(ShoppingListCheckOffService) {
@@ -47,6 +48,12 @@ function ShoppingListCheckOffService() {
     service.getAlreadyBoughtItems = function () {
         return alreadyBoughtItems;
     }
+}
+
+function TripleDollarFilter() {    
+  return function (input) {
+    return "$$$" + input || "$$$";
+  };
 }
 
 })();
