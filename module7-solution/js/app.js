@@ -36,8 +36,8 @@ function ShoppingListCheckOffService() {
     var alreadyBoughtItems = [];
 
     service.moveItem = function(itemIndex) {
-        var boughtItem = toBuyItems.splice(itemIndex, 1);
-        alreadyBoughtItems = alreadyBoughtItems.concat(boughtItem);
+        var boughtItem = toBuyItems.splice(itemIndex, 1)[0];
+        alreadyBoughtItems.push(boughtItem);
     }
 
     service.getToBuyItems = function () {
