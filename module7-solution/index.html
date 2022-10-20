@@ -36,7 +36,7 @@
       <div ng-controller='ToBuyController as toBuy'>
         <ol>
           <li ng-repeat="item in toBuy.items">
-            Buy {{ item.name }} <input ng-model="item.quantity"></input>
+            Buy {{ item.name }} <input ng-model="item.quantity" type="number"></input>
             <button class="btn btn-default" ng-click="toBuy.buyItem($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button>
           </li>
         </ol>

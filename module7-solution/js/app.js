@@ -52,7 +52,7 @@ function ShoppingListCheckOffService() {
 
 function TripleDollarFilter() {    
   return function (input) {
-    return "$$$" + input || "$$$";
+    return "$$$" + parseFloat(input).toFixed(2) || "$$$";
   };
 }
 
