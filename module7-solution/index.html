@@ -50,7 +50,7 @@
       <div ng-controller='AlreadyBoughtController as alreadyBought'>
         <ol>
           <li ng-repeat="item in alreadyBought.items">
-            Bought {{ item.quantity }} of {{ item.name }} for total price of {{ item.quantity * item.pricePerItem }}
+            Bought {{ item.quantity }} of {{ item.name }} for total price of {{ item.quantity * item.pricePerItem | currency : "$$$" }}
           </li>
         </ol>
         <div class="emptyMessage" ng-if="alreadyBought.items.length == 0">Nothing bought yet.</div>
