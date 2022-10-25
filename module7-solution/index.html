@@ -43,7 +43,7 @@
             <button class="btn btn-default" ng-click="toBuy.buyItem($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button>
           </li>
         </ol>
-        <div class="emptyMessage" ng-if="toBuy.errorItem != undefined">Please enter a whole number of items for {{ toBuy.errorItem.quantity }}</div>
+        <div class="emptyMessage" ng-if="toBuy.errorItem != undefined">Please enter a whole number of items for {{ toBuy.errorItem.name }}</div>
         <div class="emptyMessage" ng-if="toBuy.items.length == 0">Everything is bought!</div>
       </div>
     </div>
