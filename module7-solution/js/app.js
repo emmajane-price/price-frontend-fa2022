@@ -11,9 +11,15 @@ ToBuyController.$inject = ['ShoppingListCheckOffService'];
 function ToBuyController(ShoppingListCheckOffService) {
     var toBuy = this;
     toBuy.items = ShoppingListCheckOffService.getToBuyItems();
+    toBuy.errorItem;
 
     toBuy.buyItem = function(itemIndex) {
-        ShoppingListCheckOffService.moveItem(itemIndex);
+        if (isWholeNumber(toBuy.items[itemIndex])) {
+            ShoppingListCheckOffService.moveItem(itemIndex);
+            toBuy.errorItem = {};
+        } else {
+            toBuy.errorItem = toBuy.items[itemIndex];
+        }
     }
     
 }
@@ -47,6 +53,10 @@ function ShoppingListCheckOffService() {
 
     service.getAlreadyBoughtItems = function () {
         return alreadyBoughtItems;
+    }
+
+    service.isWholeNumber = function (item) {
+        return (item.quantity % 1) == 0;
     }
 }
 
