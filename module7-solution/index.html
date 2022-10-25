@@ -39,7 +39,7 @@
       <div ng-controller='ToBuyController as toBuy'>
         <ol>
           <li ng-repeat="item in toBuy.items">
-            Buy {{ item.name }} for {{ item.pricePerItem | tripleDollar }}:  <input ng-model="item.quantity" type="number" pattern="^[0-9]*(\.[0-9]{0,1,2})?$"></input>
+            Buy {{ item.name }} for {{ item.pricePerItem | tripleDollar }}:  <input ng-model="item.quantity" type="number"></input>
             <button class="btn btn-default" ng-click="toBuy.buyItem($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button>
           </li>
         </ol>
