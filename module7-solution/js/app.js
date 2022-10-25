@@ -14,7 +14,7 @@ function ToBuyController(ShoppingListCheckOffService) {
     toBuy.errorItem;
 
     toBuy.buyItem = function(itemIndex) {
-        if (isWholeNumber(toBuy.items[itemIndex])) {
+        if (ShoppingListCheckOffService.isWholeNumber(toBuy.items[itemIndex])) {
             ShoppingListCheckOffService.moveItem(itemIndex);
             toBuy.errorItem = {};
         } else {
