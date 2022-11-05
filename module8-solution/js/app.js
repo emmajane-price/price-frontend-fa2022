@@ -50,8 +50,14 @@ function MenuSearchService($http, ApiBasePath) {
           method: "GET",
           url: (ApiBasePath + "/menu_items.json")
         }).then(function(response) {
-            var foundItems = (searchTerm.strip() === "" ) ? [] :
-                (response.data.menu_items).filter(item => (item.description).indexOf(searchTerm) != -1);
+            var foundItems;
+            if (searchTerm.strip() !== "" ) {
+                for (item in (response.data.menu_items)) {
+                    if ((item.description).indexOf(searchTerm) != -1) {
+                        foundItems.push(item);
+                    }
+                }
+            };
             return foundItems;
         }).catch(function(error) {
             console.log(error);
