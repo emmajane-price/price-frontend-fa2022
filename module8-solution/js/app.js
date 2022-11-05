@@ -4,11 +4,11 @@
 angular.module('NarrowItDownApp', [])
     .controller('NarrowItDownController ', NarrowItDownController )
     .service('MenuSearchService', MenuSearchService)
-    .directive('FoundItemsDirective', FoundItemsDirective)
+    .directive('foundItems', FoundItems)
     .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
 
 
-function FoundItemsDirective() {
+function FoundItems() {
     var ddo = {
         templateUrl: 'foundItems.html',
         scope: {
@@ -23,7 +23,7 @@ NarrowItDownController .$inject = ['MenuSearchService'];
 function NarrowItDownController (MenuSearchService) {
     var narrowItDown = this;
     narrowItDown.found = [];
-    narrowItDown.searchTerm;
+    narrowItDown.searchTerm = "";
 
     narrowItDown.getMatchedMenuItems = function() {
         var matchedItems = MenuSearchService.getMatchedMenuItems(narrowItDown.searchTerm);
@@ -49,8 +49,8 @@ function MenuSearchService($http, ApiBasePath) {
           method: "GET",
           url: (ApiBasePath + "/menu_items.json")
         }).then(function(response) {
-            var foundItems = (response.data.menu_items)
-                .filter(item => (item.description).indexOf(searchTerm) != -1);
+            var foundItems = (searchTerm.strip() === "" ) ? [] :
+                (response.data.menu_items).filter(item => (item.description).indexOf(searchTerm) != -1);
             return foundItems;
         }).catch(function(error) {
             console.log(error);
