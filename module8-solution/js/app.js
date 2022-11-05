@@ -51,10 +51,11 @@ function MenuSearchService($http, ApiBasePath) {
           url: (ApiBasePath + "/menu_items.json")
         }).then(function(response) {
             var foundItems;
+            var allItems = response.data.menuItems;
             if (searchTerm !== "" ) {
-                for (item in (response.data.menu_items)) {
-                    if ((item.description).indexOf(searchTerm) != -1) {
-                        foundItems.push(item);
+                for (var i = 0; i < allItems.length; i++) {
+                    if ((allItems[i].description).indexOf(searchTerm) != -1) {
+                        foundItems.push(allItems[i]);
                     }
                 }
             };
