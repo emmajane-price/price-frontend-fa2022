@@ -5,6 +5,9 @@ input[type="text"] {
   width: 200px;
   float: left;
 }
+.item-table {
+  width: 100%;
+}
 .narrow-button {
   float: left;
   margin-left: 10px;

@@ -1,4 +1,4 @@
-<div ng-if="foundItems !== undefined && foundItems.length !== 0">
+<div class="item-table" ng-if="foundItems !== undefined && foundItems.length !== 0">
     <table>
         <tr>
             <th>Name</th>
@@ -9,7 +9,7 @@
             <td>{{ item.name }}</td>
             <td>{{ item.short_name }}</td>
             <td>{{ item.description }}</td>
-            <td><button ng-click="onRemove($index);">Don't want this one!</button></td>
+            <td><button ng-click="onRemove({index: $index});">Don't want this one!</button></td>
         </tr>
     </table>
 </div>
