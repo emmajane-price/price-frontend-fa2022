@@ -1,7 +1,16 @@
-<ol>
-    <li ng-repeat="item in foundItems">
-        {{ item.name }}, {{ item.short_name }}, {{ item.description }}
-        <button ng-click="onRemove($index);">Don't want this one!</button>
-    </li>
-</ol>
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Short Name</th>
+            <th>Description</th>
+        </tr>
+        <tr ng-repeat="item in foundItems">
+            <td>{{ item.name }}</td>
+            <td>{{ item.short_name }}</td>
+            <td>{{ item.description }}</td>
+            <tb><button ng-click="onRemove($index);">Don't want this one!</button></tb>
+        </tr>
+    </table>
+</div>
 <div ng-if="foundItems.length === 0">Nothing found</div>

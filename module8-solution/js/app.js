@@ -23,14 +23,14 @@ function FoundItems() {
 NarrowItDownController .$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
     var narrowItDown = this;
-    narrowItDown.found = [];
+    narrowItDown.found = undefined;
     narrowItDown.searchTerm = "";
 
     narrowItDown.getMatchedMenuItems = function() {
         var matchedItems = MenuSearchService.getMatchedMenuItems(narrowItDown.searchTerm);
 
         matchedItems.then(function(response) {
-            narrowItDown.found = response.data;
+            narrowItDown.found = response;
         }).catch(function(error) {
             console.log(error);
         });
@@ -51,15 +51,8 @@ function MenuSearchService($http, ApiBasePath) {
           url: (ApiBasePath + "/menu_items.json")
         }).then(function(response) {
             var allItems = response.data.menu_items;
-            var foundItems = allItems.filter((item) => (item.description).indexOf(searchTerm) != -1);
-
-            // if (searchTerm !== "" ) {
-            //     for (var i = 0; i < allItems.length; i++) {
-            //         if ((allItems[i].description).indexOf(searchTerm) != -1) {
-            //             foundItems.push(allItems[i]);
-            //         }
-            //     }
-            // };
+            var foundItems = (searchTerm.trim() === "") ? [] :
+                allItems.filter((item) => (item.description).indexOf(searchTerm) != -1);
             return foundItems;
         }).catch(function(error) {
             console.log(error);
