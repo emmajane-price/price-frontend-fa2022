@@ -1,5 +1,5 @@
 <div ng-if="foundItems !== undefined && foundItems.length !== 0">
-    <table  class="item-table">
+    <table class="item-table">
         <tr>
             <th>Name</th>
             <th>Short Name</th>
@@ -13,4 +13,4 @@
         </tr>
     </table>
 </div>
-<div ng-if="foundItems.length === 0">Nothing found</div>
+<div ng-if="foundItems.length === 0"  class="item-table error">Nothing found</div>

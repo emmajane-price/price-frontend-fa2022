@@ -5,6 +5,9 @@ input[type="text"] {
   width: 200px;
   float: left;
 }
+.error {
+  color: red;
+}
 .item-table {
   width: 100%;
 }
