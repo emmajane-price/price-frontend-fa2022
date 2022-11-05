@@ -50,15 +50,16 @@ function MenuSearchService($http, ApiBasePath) {
           method: "GET",
           url: (ApiBasePath + "/menu_items.json")
         }).then(function(response) {
-            var foundItems;
-            var allItems = response.data.menuItems;
-            if (searchTerm !== "" ) {
-                for (var i = 0; i < allItems.length; i++) {
-                    if ((allItems[i].description).indexOf(searchTerm) != -1) {
-                        foundItems.push(allItems[i]);
-                    }
-                }
-            };
+            var allItems = response.data.menu_items;
+            var foundItems = allItems.filter((item) => (item.description).indexOf(searchTerm) != -1);
+
+            // if (searchTerm !== "" ) {
+            //     for (var i = 0; i < allItems.length; i++) {
+            //         if ((allItems[i].description).indexOf(searchTerm) != -1) {
+            //             foundItems.push(allItems[i]);
+            //         }
+            //     }
+            // };
             return foundItems;
         }).catch(function(error) {
             console.log(error);
