@@ -5,8 +5,15 @@ input[type="text"] {
   width: 200px;
   float: left;
 }
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 3px;
+}
 .error {
   color: red;
+  width: 100%;
+  float: left;
 }
 .item-table {
   width: 100%;
