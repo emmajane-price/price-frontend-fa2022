@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('NarrowItDownApp', [])
-    .controller('NarrowItDownController ', NarrowItDownController )
+    .controller('NarrowItDownController', NarrowItDownController )
     .service('MenuSearchService', MenuSearchService)
     .directive('foundItems', FoundItems)
     .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
@@ -11,6 +11,7 @@ angular.module('NarrowItDownApp', [])
 function FoundItems() {
     var ddo = {
         templateUrl: 'foundItems.html',
+        restrict: "E",
         scope: {
             foundItems: '<',
             onRemove: '&'
@@ -20,7 +21,7 @@ function FoundItems() {
 }
 
 NarrowItDownController .$inject = ['MenuSearchService'];
-function NarrowItDownController (MenuSearchService) {
+function NarrowItDownController(MenuSearchService) {
     var narrowItDown = this;
     narrowItDown.found = [];
     narrowItDown.searchTerm = "";
