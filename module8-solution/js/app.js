@@ -20,7 +20,7 @@ function FoundItems() {
     return ddo;
 }
 
-NarrowItDownController .$inject = ['MenuSearchService'];
+NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
     var narrowItDown = this;
     narrowItDown.found = undefined;
