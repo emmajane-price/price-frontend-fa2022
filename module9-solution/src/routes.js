@@ -31,20 +31,20 @@
       }
     })
     
-    .state('items', {
-      url: '/items/{categoryId}',
-      templateUrl: 'src/menuapp/templates/items.template.html',
-      controller: 'ItemDetailController as itemDetail',
-      resolve: {
-        item: ['$stateParams', 'MenuDataService',
-              function ($stateParams, MenuDataService) {
-                return MenuDataService.getItems()
-                  .then(function (items) {
-                    return items[$stateParams.itemId];
-                  });
-              }]
-      }
-    });
+    // .state('items', {
+    //   url: '/items/{categoryId}',
+    //   templateUrl: 'src/menuapp/templates/items.template.html',
+    //   controller: 'ItemDetailController as itemDetail',
+    //   resolve: {
+    //     item: ['$stateParams', 'MenuDataService',
+    //           function ($stateParams, MenuDataService) {
+    //             return MenuDataService.getItems()
+    //               .then(function (items) {
+    //                 return items[$stateParams.itemId];
+    //               });
+    //           }]
+    //   }
+    // });
   }
     
 })();
