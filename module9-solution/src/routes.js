@@ -26,7 +26,10 @@
       controller: 'CategoriesController as categories',
       resolve: {
         categoryList: ['MenuDataService', function (MenuDataService) {
-          return MenuDataService.getAllCategories().data;
+          return MenuDataService.getAllCategories()
+            .then(function(response) {
+              return response.data;
+            });
         }]
       }
     })
