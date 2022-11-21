@@ -34,20 +34,19 @@
       }
     })
     
-    // .state('items', {
-    //   url: '/items/{categoryId}',
-    //   templateUrl: 'src/menuapp/templates/items.template.html',
-    //   controller: 'ItemDetailController as itemDetail',
-    //   resolve: {
-    //     item: ['$stateParams', 'MenuDataService',
-    //           function ($stateParams, MenuDataService) {
-    //             return MenuDataService.getItems()
-    //               .then(function (items) {
-    //                 return items[$stateParams.itemId];
-    //               });
-    //           }]
-    //   }
-    // });
+    .state('items', {
+      url: '/items/{categoryId}',
+      templateUrl: 'src/menuapp/templates/items.template.html',
+      controller: 'ItemsController as items',
+      resolve: {
+        item: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
+          return MenuDataService.getItemsForCategory($stateParams.categoryId)
+            .then(function(response) {
+              return response.data;
+            });
+        }]
+      }
+    });
   }
     
 })();
