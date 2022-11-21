@@ -7,7 +7,6 @@ angular.module('MenuApp')
   bindings: {
     categoryList: '<'
   }
-  // controller: 'CategoriesController'
 });
 
 })();
