@@ -4,6 +4,6 @@
 <ul>
   <li ng-repeat="category in $ctrl.categoryList"
       ui-sref="items({categoryId: category.short_name})">
-    <button>{{ category.name }}</button>
+    {{ category.name }}
   </li>
 </ul>
