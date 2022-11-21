@@ -6,10 +6,10 @@
 
 
   ItemsController.$inject = ['category_info'];
-  function ItemsController(category_info) {
+  function ItemsController(categoryInfo) {
     var $ctrl = this;
-    $ctrl.items = category_info.menu_items;
-    $ctrl.category = category_info.category;
+    $ctrl.items = categoryInfo.menu_items;
+    $ctrl.category = categoryInfo.category;
   }
 
 })(); 

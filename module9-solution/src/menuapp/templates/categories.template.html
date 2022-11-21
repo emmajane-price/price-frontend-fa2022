@@ -2,7 +2,7 @@
 
 <h3>Select category for more detail</h3>
 <ul>
-  <li ng-repeat="category in categories.categoryList"
+  <li ng-repeat="category in categoryList"
       ui-sref="items({categoryId: category.short_name})">
     <button>{{ category.name }}</button>
   </li>

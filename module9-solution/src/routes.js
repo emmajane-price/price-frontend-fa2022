@@ -39,7 +39,7 @@
       templateUrl: 'src/menuapp/templates/items.template.html',
       controller: 'ItemsController as items',
       resolve: {
-        category_info: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
+        categoryInfo: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
           return MenuDataService.getItemsForCategory($stateParams.categoryId)
             .then(function(response) {
               return response.data;
