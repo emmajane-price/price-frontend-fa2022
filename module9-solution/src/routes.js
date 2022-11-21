@@ -22,8 +22,9 @@
     // Premade list page
     .state('categories', {
       url: '/categories',
-      templateUrl: 'src/menuapp/templates/categories.template.html',
-      controller: 'CategoriesController as categories',
+      // templateUrl: 'src/menuapp/templates/categories.template.html',
+      // controller: 'CategoriesController as categories',
+      component: 'categories',
       resolve: {
         categoryList: ['MenuDataService', function (MenuDataService) {
           return MenuDataService.getAllCategories()
@@ -36,8 +37,9 @@
     
     .state('items', {
       url: '/items/{categoryId}',
-      templateUrl: 'src/menuapp/templates/items.template.html',
-      controller: 'ItemsController as items',
+      // templateUrl: 'src/menuapp/templates/items.template.html',
+      // controller: 'ItemsController as items',
+      component: 'items',
       resolve: {
         categoryInfo: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
           return MenuDataService.getItemsForCategory($stateParams.categoryId)

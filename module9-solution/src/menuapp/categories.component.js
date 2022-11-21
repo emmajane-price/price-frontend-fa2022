@@ -6,8 +6,8 @@ angular.module('MenuApp')
   templateUrl: 'src/menuapp/templates/categories.template.html',
   bindings: {
     categoryList: '<'
-  },
-  controller: 'CategoriesController'
+  }
+  // controller: 'CategoriesController'
 });
 
 })();
