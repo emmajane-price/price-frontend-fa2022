@@ -19,7 +19,9 @@
       templateUrl: 'src/menuapp/templates/home.template.html'
     })
   
-    // Premade list page
+    /* I know we were taught to route to components, but I saw that in new versions
+    of ui-router this was available and it seemed much cleaner!*/
+    // Category list page
     .state('categories', {
       url: '/categories',
       component: 'categories',
@@ -32,7 +34,7 @@
         }]
       }
     })
-    
+    // Items list page
     .state('items', {
       url: '/items/{categoryId}',
       component: 'items',
