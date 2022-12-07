@@ -8,7 +8,7 @@ angular.module('data')
 MenuDataService.$inject = ['$http']
 function MenuDataService($http) {
   var service = this;
-  var ApiBasePath = "https://davids-restaurant.herokuapp.com";
+  var ApiBasePath = "https://coursera-jhu-default-rtdb.firebaseio.com";
   service.getAllCategories = function() {
       return $http({
         method: "GET",

@@ -1,0 +1,60 @@
+<div>
+  <fieldset>
+    <legend>Newsletter Signup</legend>
+    <form name='userForm' novalidate>
+
+      <input type="text" name="firstname" placeholder="Firstname"
+        ng-model="signupCtrl.user.firstname"
+        required>
+        {{ signupCtrl.user.firstname }}
+        <span ng-if="userForm.firstname.$error.required && userForm.firstname.$touched">
+          Must enter a first name
+        </span>
+        <br>
+      
+      <input type="text" name="lastname" placeholder="Lastname"
+        ng-model="signupCtrl.user.lastname"
+        required>
+        {{ signupCtrl.user.lastname }}
+        <span ng-if="userForm.lastname.$error.required && userForm.lastname.$touched">
+          Must enter a last name
+        </span>
+        <br>
+
+      <input type="email" name="email" placeholder="Email"
+        ng-model="signupCtrl.user.email"
+        required>
+        <span ng-if="userForm.email.$invalid && userForm.email.$touched">
+          Must be a valid email address: handle@domain format
+        </span>
+        <br>
+
+      <input type="text" name="phone" placeholder="Phone (###-###-####)"
+        ng-model="signupCtrl.user.phone"
+        pattern="(\d{3})-(\d{3})-(\d{4})">
+        <span ng-if="userForm.phone.$invalid && userForm.phone.$touched">
+          Phone must be in the format ###-###-####.
+        </span>
+        <br>
+
+      <input type="text" name="short_name" placeholder="Menu Number (AB123)"
+        ng-model="signupCtrl.user.short_name"
+        pattern="([a-zA-Z]{1,2})(\d{1,2}))">
+        <span ng-if="userForm.phone.$invalid && userForm.phone.$touched">
+          Menu number must be in the 1 or 2 letters followed by a 1 or 2 digit.
+        </span>
+        <span ng-if="signupCtrl.validCategory && userForm.phone.$touched">
+          No such menu number exists
+        </span>
+        <br>
+
+      <button
+        ng-disabled="userForm.$invalid"
+        ui-sref="items({categoryId: category.short_name})">Submit</button>
+
+        <div style="margin-top: 10px;">
+          Form valid? {{ userForm.$valid }}
+        </div>
+    </form>
+  </fieldset>
+</div>
