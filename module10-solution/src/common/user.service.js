@@ -11,8 +11,9 @@ function UserService($http, ApiPath) {
   service.currentUser = null;
 
   service.checkIfItemExists = function (short_name) {
-    var category = short_name.split(/([a-zA-Z]+)/);
-    var item = short_name.split(/(\d+)/);
+    var categoryItem = short_name.split(/(\d+)/);
+    var category = categoryItem[0];
+    var item = parseInt(categoryItem[1]) - 1;
     return $http.get(ApiPath + `/menu_items/${category}/menu_items/${item}.json`)
       .then(function (response) {
         return !(response.data == null);
