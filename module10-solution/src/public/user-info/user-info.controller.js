@@ -8,7 +8,7 @@ UserInfoController.$inject = ['user'];
 function UserInfoController(user) {
   var $ctrl = this;
   $ctrl.user = user;
-  $ctrl.favoriteCategoryShortName = $ctrl.user.favoriteItem.short_name.split(/(\d+)/)[0];
+  $ctrl.favoriteCategoryShortName = $ctrl.user !== null ? $ctrl.user.favoriteItem.short_name.split(/(\d+)/)[0] : '';
 }
 
 })();

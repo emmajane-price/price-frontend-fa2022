@@ -15,7 +15,7 @@ function SignupController(UserService) {
       .then(function (response) {
         if (response.data != null) {
           $ctrl.validCategory = true;
-          $ctrl.favoriteItem = response.data;
+          $ctrl.user.favoriteItem = response.data;
           UserService.setUser($ctrl.user);
         } else {
           $ctrl.validCategory = false;
