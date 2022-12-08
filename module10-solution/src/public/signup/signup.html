@@ -43,14 +43,14 @@
         <span ng-if="userForm.phone.$invalid && userForm.phone.$touched">
           Menu number must be in the 1 or 2 letters followed by a 1 or 2 digit.
         </span>
-        <span ng-if="signupCtrl.validCategory && userForm.phone.$touched">
+        <span ng-if="!signupCtrl.validCategory && userForm.phone.$touched">
           No such menu number exists
         </span>
         <br>
 
       <button
         ng-disabled="userForm.$invalid"
-        ui-sref="items({categoryId: category.short_name})">Submit</button>
+        ui-sref="signupCtrl.submit(signupCtrl.user.short_name)">Submit</button>
 
         <div style="margin-top: 10px;">
           Form valid? {{ userForm.$valid }}

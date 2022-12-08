@@ -4,11 +4,18 @@
 angular.module('public')
 .controller('SignupController', SignupController);
 
-SignupController.$inject = ['user', 'validCategory'];
-function SignupController(user, validCategory) {
+SignupController.$inject = ['UserService'];
+function SignupController(UserService) {
   var $ctrl = this;
-  $ctrl.user = user;
-  $ctrl.validCategory = validCategory;
+  $ctrl.user = UserService.getUser;
+  $ctrl.validCategory = false;
+
+  $ctrl.submit = function(short_name) {
+    $ctrl.validCategory = UserService.checkIfItemExists(short_name);
+    if ($ctrl.validCategory) {
+      UserService.setUser($ctrl.user);
+    }
+  }
 }
 
 })();
