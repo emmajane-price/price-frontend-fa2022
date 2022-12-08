@@ -7,13 +7,15 @@ angular.module('public')
 SignupController.$inject = ['UserService'];
 function SignupController(UserService) {
   var $ctrl = this;
-  $ctrl.user = UserService.getUser;
+  $ctrl.user = UserService.getUser();
+  $ctrl.validCategory = false;
 
   $ctrl.submit = function(short_name) {
     UserService.checkIfItemExists(short_name)
       .then(function (response) {
         if (response.data != null) {
           $ctrl.validCategory = true;
+          $ctrl.favoriteItem = response.data;
           UserService.setUser($ctrl.user);
         } else {
           $ctrl.validCategory = false;

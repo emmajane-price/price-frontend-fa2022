@@ -24,7 +24,6 @@ function UserService($http, ApiPath) {
   service.setUser = function (user) {
     service.currentUser = user;
   };
-
 }
 
 

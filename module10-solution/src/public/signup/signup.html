@@ -40,21 +40,21 @@
       <input type="text" name="short_name" placeholder="Menu Number (AB123)"
         ng-model="signupCtrl.user.short_name"
         pattern="([a-zA-Z]{1,2})(\d{1,2})">
-        <span ng-if="userForm.phone.$touched && userForm.phone.$invalid">
+        <span ng-if="userForm.short_name.$touched && userForm.short_name.$invalid">
           Menu number must be in the 1 or 2 letters followed by a 1 or 2 digit.
         </span>
-        <span ng-if="userForm.phone.$touched && !signupCtrl.validCategory">
+        <span ng-if="userForm.short_name.$touched && !signupCtrl.validCategory">
           No such menu number exists
         </span>
         <br>
 
       <button
-        ng-disabled="userForm.$invalid"
+        ng-disabled="userForm.$invalid && !signupCtrl.validCategory"
         ng-click="signupCtrl.submit(signupCtrl.user.short_name)">Submit</button>
 
-        <div style="margin-top: 10px;">
-          Form valid? {{ userForm.$valid }}
-        </div>
+      <div ng-if="userForm.$valid && signupCtrl.validCategory">
+        Your information has been saved
+      </div>
     </form>
   </fieldset>
 </div>

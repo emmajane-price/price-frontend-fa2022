@@ -1,0 +1,14 @@
+<div class="user-info">
+  <div ng-if="userInfoCtrl.user != null">
+    <h2>View the information from your signup below: </h2>
+    {{ userInfoCtrl.user.firstname }} {{ signupCtrl.user.lastname }} <br>
+    {{ signupCtrl.user.email }} <br>
+    {{ signupCtrl.user.phone }} <br>
+    <h3>Your favorite item: </h3>
+    {{ signupCtrl.user.favoriteItem.name }}: {{ signupCtrl.user.favoriteItem.description }}
+    <img class="img-responsive" width="250" height="150" ng-src="images/menu/{{signupCtrl.favoriteCategoryShortName}}/{{signupCtrl.user.favoriteItem.short_name}}.jpg" alt="{{signupCtrl.user.favoriteItem.name}}">
+  </div>
+  <div ng-if="userInfoCtrl.user == null">
+    Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+  </div>
+</div>
