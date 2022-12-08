@@ -39,7 +39,7 @@
 
       <input type="text" name="short_name" placeholder="Menu Number (AB123)"
         ng-model="signupCtrl.user.short_name"
-        pattern="([a-zA-Z]{1,2})(\d{1,2}))">
+        pattern="([a-zA-Z]{1,2})(\d{1,2})">
         <span ng-if="userForm.phone.$invalid && userForm.phone.$touched">
           Menu number must be in the 1 or 2 letters followed by a 1 or 2 digit.
         </span>
