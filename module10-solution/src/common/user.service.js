@@ -14,14 +14,7 @@ function UserService($http, ApiPath) {
     var categoryItem = short_name.split(/(\d+)/);
     var category = categoryItem[0];
     var item = parseInt(categoryItem[1]) - 1;
-    return $http({
-        method: "GET",
-        url: ApiPath + `/menu_items/${category}/menu_items/${item}.json`
-      }).then(function (response) {
-        return !(response.data == null);
-      }).catch(function(error) {
-        console.log(error);
-      });
+    return $http.get(ApiPath + `/menu_items/${category}/menu_items/${item}.json`);
   };
 
   service.getUser = function () {

@@ -8,13 +8,19 @@ SignupController.$inject = ['UserService'];
 function SignupController(UserService) {
   var $ctrl = this;
   $ctrl.user = UserService.getUser;
-  $ctrl.validCategory = true;
 
   $ctrl.submit = function(short_name) {
-    $ctrl.validCategory = UserService.checkIfItemExists(short_name);
-    if ($ctrl.validCategory) {
-      UserService.setUser($ctrl.user);
-    }
+    UserService.checkIfItemExists(short_name)
+      .then(function (response) {
+        if (response.data != null) {
+          $ctrl.validCategory = true;
+          UserService.setUser($ctrl.user);
+        } else {
+          $ctrl.validCategory = false;
+        }
+      }).catch(function(error) {
+        console.log(error);
+      });
   }
 }
 

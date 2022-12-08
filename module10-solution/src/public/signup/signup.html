@@ -40,10 +40,10 @@
       <input type="text" name="short_name" placeholder="Menu Number (AB123)"
         ng-model="signupCtrl.user.short_name"
         pattern="([a-zA-Z]{1,2})(\d{1,2})">
-        <span ng-if="userForm.phone.$invalid && userForm.phone.$touched">
+        <span ng-if="userForm.phone.$touched && userForm.phone.$invalid">
           Menu number must be in the 1 or 2 letters followed by a 1 or 2 digit.
         </span>
-        <span ng-if="!signupCtrl.validCategory && userForm.phone.$touched">
+        <span ng-if="userForm.phone.$touched && !signupCtrl.validCategory">
           No such menu number exists
         </span>
         <br>
