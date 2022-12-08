@@ -113,6 +113,28 @@ h3.menu-item-title {
 }
 /* END SINGLE CATEGORY PAGE */
 
+/* NEWSLETTER SIGN UP FORM PAGE */
+.signup-form {
+  padding: 20px;
+}
+.signup-form legend {
+  color: #fff;
+}
+.signup-form input {
+  color: black;
+}
+.signup-form .ng-touched.ng-valid {
+  border: 2px #557c3e solid;
+  color: #557c3e;
+}
+.signup-form .ng-touched.ng-invalid {
+  border: 2px red solid;
+  color: red;
+}
+.signup-form button {
+  background-color: #557c3e;
+}
+/* END NEWSLETTER SIGN UP FORM PAGE */
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {

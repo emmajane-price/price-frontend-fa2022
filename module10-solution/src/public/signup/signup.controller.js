@@ -8,7 +8,7 @@ SignupController.$inject = ['UserService'];
 function SignupController(UserService) {
   var $ctrl = this;
   $ctrl.user = UserService.getUser;
-  $ctrl.validCategory = false;
+  $ctrl.validCategory = true;
 
   $ctrl.submit = function(short_name) {
     $ctrl.validCategory = UserService.checkIfItemExists(short_name);

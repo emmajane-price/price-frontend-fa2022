@@ -1,4 +1,4 @@
-<div>
+<div class="signup-form">
   <fieldset>
     <legend>Newsletter Signup</legend>
     <form name='userForm' novalidate>
@@ -50,7 +50,7 @@
 
       <button
         ng-disabled="userForm.$invalid"
-        ui-sref="signupCtrl.submit(signupCtrl.user.short_name)">Submit</button>
+        ng-click="signupCtrl.submit(signupCtrl.user.short_name)">Submit</button>
 
         <div style="margin-top: 10px;">
           Form valid? {{ userForm.$valid }}
