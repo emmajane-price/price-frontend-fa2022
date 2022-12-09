@@ -10,19 +10,22 @@ function SignupController(UserService) {
   $ctrl.user = UserService.getUser();
   $ctrl.validCategory = false;
 
-  $ctrl.submit = function(short_name) {
-    UserService.checkIfItemExists(short_name)
-      .then(function (response) {
-        if (response.data != null) {
-          $ctrl.validCategory = true;
-          $ctrl.user.favoriteItem = response.data;
-          UserService.setUser($ctrl.user);
-        } else {
-          $ctrl.validCategory = false;
-        }
-      }).catch(function(error) {
-        console.log(error);
-      });
+  $ctrl.setIsValidCategory = function (response) {
+    $ctrl.validCategory = response.data != null;
+  }
+
+  $ctrl.saveUser = function(response) {
+    if (response.data != null) {
+      $ctrl.validCategory = true;
+      $ctrl.user.favoriteItem = response.data;
+      UserService.setUser($ctrl.user);
+    } else {
+      $ctrl.validCategory = false;
+    }
+  }
+
+  $ctrl.checkIfItemExists = function(short_name, outcomeFunction) {
+    UserService.checkIfItemExists(short_name).then(outcomeFunction);
   }
 }
 
