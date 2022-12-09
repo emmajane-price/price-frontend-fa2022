@@ -8,7 +8,7 @@ SignupController.$inject = ['UserService'];
 function SignupController(UserService) {
   var $ctrl = this;
   $ctrl.user = UserService.getUser();
-  $ctrl.validCategory = false;
+  $ctrl.validCategory = undefined;
 
   $ctrl.setIsValidCategory = function (response) {
     $ctrl.validCategory = response.data != null;
