@@ -25,7 +25,9 @@ function SignupController(UserService) {
   }
 
   $ctrl.checkIfItemExists = function(short_name, outcomeFunction) {
-    UserService.checkIfItemExists(short_name).then(outcomeFunction);
+    if (short_name !== undefined){
+      UserService.checkIfItemExists(short_name).then(outcomeFunction);
+    }
   }
 }
 

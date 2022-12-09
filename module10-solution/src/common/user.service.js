@@ -11,12 +11,10 @@ function UserService($http, ApiPath) {
   service.currentUser = null;
 
   service.checkIfItemExists = function (short_name) {
-    if (short_name !== undefined){
-      var categoryItem = short_name.split(/(\d+)/);
-      var category = categoryItem[0];
-      var item = parseInt(categoryItem[1]) - 1;
-      return $http.get(ApiPath + `/menu_items/${category}/menu_items/${item}.json`);
-    }
+    var categoryItem = short_name.split(/(\d+)/);
+    var category = categoryItem[0];
+    var item = parseInt(categoryItem[1]) - 1;
+    return $http.get(ApiPath + `/menu_items/${category}/menu_items/${item}.json`);
   };
 
   service.getUser = function () {

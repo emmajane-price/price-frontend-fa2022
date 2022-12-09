@@ -25,7 +25,7 @@
         ng-model="signupCtrl.user.email"
         required>
         <span ng-if="userForm.email.$invalid && userForm.email.$touched">
-          Must be a valid email address: handle@domain format
+          Must enter a valid email address: handle@domain format
         </span>
         <br>
 
@@ -34,7 +34,7 @@
         pattern="(\d{3})-(\d{3})-(\d{4})"
         required>
         <span ng-if="userForm.lastname.$error.required && userForm.phone.$invalid && userForm.phone.$touched">
-          Phone must be in the format ###-###-####.
+          Must enter a phone number in the format ###-###-####.
         </span>
         <br>
 
@@ -43,7 +43,7 @@
         pattern="([a-zA-Z]{1,2})(\d{1,2})"
         required>
         <span ng-if="userForm.lastname.$error.required && userForm.short_name.$touched && userForm.short_name.$invalid">
-          Menu number must be in the 1 or 2 letters followed by a 1 or 2 digit.
+          Must enter a menu number in the 1 or 2 letters followed by a 1 or 2 digit.
         </span>
         <span ng-if="signupCtrl.validCategory != undefined && signupCtrl.validCategory == false">
           No such menu number exists
