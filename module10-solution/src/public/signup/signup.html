@@ -43,7 +43,7 @@
         ng-class="{invalid: userForm.short_name.$touched && (userForm.short_name.$error.required || userForm.short_name.$invalid || userForm.short_name.$error.pattern || signupCtrl.isValidShortName == false)}"
         required>
         <span ng-if="signupCtrl.isValidShortName != undefined && signupCtrl.isValidShortName == false">
-          No such menu number exists
+          No such menu number exists.
         </span>
         <span ng-if="userForm.short_name.$touched && (userForm.short_name.$error.required || userForm.short_name.$invalid || userForm.short_name.$error.pattern)">
           Must enter a menu number in the 1 or 2 letters followed by a 1 or 2 digit.
