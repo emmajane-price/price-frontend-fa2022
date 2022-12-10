@@ -20,7 +20,7 @@ function SignupController(UserService) {
         $ctrl.isValidShortName = response
       });
     } else {
-      $ctrl.isValidShortName = undefined;
+      $ctrl.isValidShortName = false;
     }
   }
 }

@@ -127,6 +127,7 @@ h3.menu-item-title {
   border: 2px #557c3e solid;
   color: #557c3e;
 }
+.signup-form .ng-touched.ng-invalid
 .signup-form .invalid {
   border: 2px red solid;
   color: red;
