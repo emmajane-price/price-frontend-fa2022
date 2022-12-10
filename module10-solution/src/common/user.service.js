@@ -26,6 +26,4 @@ function UserService($http, ApiPath) {
   };
 }
 
-
-
 })();
