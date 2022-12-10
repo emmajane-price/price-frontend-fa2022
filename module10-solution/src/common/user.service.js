@@ -17,11 +17,15 @@ function UserService($http, ApiPath) {
       });
   };
 
-  service.getCurrentUsersItem = function (short_name) {
-    return service.getItemFromServer(short_name)
-      .then((response) => {
-        return response.data;
-      });
+  service.getCurrentUsersItem = function () {
+    if (service.currentUser != null && service.currentUser.short_name != null) {
+      return service.getItemFromServer(service.currentUser.short_name)
+        .then((response) => {
+          return response.data;
+        });
+    } else {
+      return null;
+    }
   };
 
   service.getItemFromServer = function(short_name) {
