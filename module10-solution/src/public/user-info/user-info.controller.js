@@ -5,7 +5,7 @@ angular.module('public')
 .controller('UserInfoController', UserInfoController);
 
 UserInfoController.$inject = ['user', 'categoryData'];
-function UserInfoController(user) {
+function UserInfoController(user, categoryData) {
   var $ctrl = this;
   $ctrl.user = user;
   $ctrl.categoryData = categoryData;

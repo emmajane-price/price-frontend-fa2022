@@ -1,5 +1,5 @@
 <div class="user-info">
-  <div ng-if="userInfoCtrl.user != null">
+  <div ng-if="userInfoCtrl.user != null && userInfoCtrl.categoryData != null">
     <h2>View the information from your signup below: </h2>
     {{ userInfoCtrl.user.firstname }} {{ userInfoCtrl.user.lastname }} <br>
     {{ userInfoCtrl.user.email }} <br>
