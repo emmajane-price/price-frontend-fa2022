@@ -29,9 +29,10 @@
 
       <input type="text" name="phone" placeholder="Phone (###-###-####)"
         ng-model="signupCtrl.user.phone"
-        pattern="/^\d{3}-\d{3}-\d{4}$/"
+        ng-pattern="/^\d{3}-\d{3}-\d{4}$/"
+        ng-class="{invalid: (userForm.phone.$error.required || userForm.phone.$invalid || userForm.phone.$error.pattern) && userForm.phone.$touched"
         required>
-        <span ng-if="userForm.lastname.$error.required && userForm.phone.$invalid && userForm.phone.$touched">
+        <span ng-if="(userForm.phone.$error.required || userForm.phone.$invalid || userForm.phone.$error.pattern) && userForm.phone.$touched">
           Must enter a phone number in the format ###-###-####.
         </span>
         <br>
@@ -39,8 +40,9 @@
       <input type="text" name="short_name" placeholder="Menu Number (AB123)"
         ng-model="signupCtrl.user.short_name" ng-keyup="signupCtrl.checkIfItemExists(signupCtrl.user.short_name)"
         ng-pattern="/^[a-zA-Z]{1,2}\d{1,2}$/"
+        ng-class="{invalid: userForm.short_name.$touched && (userForm.short_name.$error.required || userForm.short_name.$invalid || userForm.short_name.$error.pattern || signupCtrl.isValidShortName == false)"
         required>
-        <span ng-if="userForm.phone.$touched && (userForm.lastname.$error.required || userForm.short_name.$invalid || userForm.short_name.$error.pattern)">
+        <span ng-if="userForm.short_name.$touched && (userForm.short_name.$error.required || userForm.short_name.$invalid || userForm.short_name.$error.pattern)">
           Must enter a menu number in the 1 or 2 letters followed by a 1 or 2 digit.
         </span>
         <span ng-if="signupCtrl.isValidShortName != undefined && signupCtrl.isValidShortName == false">
