@@ -37,7 +37,7 @@
         <br>
 
       <input type="text" name="short_name" placeholder="Menu Number (AB123)"
-        ng-model="signupCtrl.user.short_name" ng-keyup="signupCtrl.checkIfItemExists(signupCtrl.user.short_name, signupCtrl.setIsValidCategory)"
+        ng-model="signupCtrl.user.short_name" ng-keyup="signupCtrl.checkIfItemExists(signupCtrl.user.short_name)"
         pattern="([a-zA-Z]{1,2})(\d{1,2})"
         required>
         <span ng-if="userForm.lastname.$error.required && userForm.short_name.$touched && userForm.short_name.$invalid">
@@ -49,8 +49,8 @@
         <br>
 
       <button
-        ng-disabled="userForm.$invalid && !signupCtrl.isValidShortName"
-        ng-click="signupCtrl.checkIfItemExists(signupCtrl.user.short_name, signupCtrl.saveUser)">Submit</button>
+        ng-disabled="userForm.$invalid || (signupCtrl.isValidShortName != undefined && signupCtrl.isValidShortName == false)"
+        ng-click="signupCtrl.saveUser()">Submit</button>
 
       <div ng-if="userForm.$valid && userForm.$submitted && signupCtrl.isValidShortName">
         Your information has been saved
