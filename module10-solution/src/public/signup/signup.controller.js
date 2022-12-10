@@ -8,27 +8,17 @@ SignupController.$inject = ['UserService'];
 function SignupController(UserService) {
   var $ctrl = this;
   $ctrl.user = UserService.getUser();
-  $ctrl.validCategory = undefined;
+  $ctrl.isValidShortName = undefined;
 
-  $ctrl.setIsValidCategory = function (response) {
-    $ctrl.validCategory = response.data != null;
+  $ctrl.saveUser = function() {
+    UserService.setUser($ctrl.user);
   }
 
-  $ctrl.saveUser = function(response) {
-    if (response.data != null) {
-      $ctrl.validCategory = true;
-      $ctrl.user.favoriteItem = response.data;
-      UserService.setUser($ctrl.user);
-    } else {
-      $ctrl.validCategory = false;
-    }
-  }
-
-  $ctrl.checkIfItemExists = function(short_name, outcomeFunction) {
+  $ctrl.checkIfItemExists = function(short_name) {
     if (short_name !== undefined){
-      UserService.checkIfItemExists(short_name).then(outcomeFunction);
+      UserService.getIfItemExists(short_name).then(response => response = $ctrl.isValidShortName);
     } else {
-      $ctrl.validCategory = false;
+      $ctrl.isValidShortName = false;
     }
   }
 }

@@ -10,12 +10,27 @@ function UserService($http, ApiPath) {
   var service = this;
   service.currentUser = null;
 
-  service.checkIfItemExists = function (short_name) {
+  service.getIfItemExists = function (short_name) {
+    return service.getItemFromServer(short_name)
+      .then((response) => {
+        return response.data != null;
+      });
+  };
+
+  service.getCurrentUsersItem = function (short_name) {
+    return service.getItemFromServer(short_name)
+      .then((response) => {
+        return response.data;
+      });
+  };
+
+  service.getItemFromServer = function(short_name) {
     var categoryItem = short_name.split(/(\d+)/);
     var category = categoryItem[0];
     var item = parseInt(categoryItem[1]) - 1;
-    return $http.get(ApiPath + `/menu_items/${category}/menu_items/${item}.json`);
-  };
+    var response = $http.get(ApiPath + `/menu_items/${category}/menu_items/${item}.json`);
+    return response;
+  }
 
   service.getUser = function () {
     return service.currentUser;

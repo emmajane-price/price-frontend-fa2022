@@ -43,16 +43,16 @@
         <span ng-if="userForm.lastname.$error.required && userForm.short_name.$touched && userForm.short_name.$invalid">
           Must enter a menu number in the 1 or 2 letters followed by a 1 or 2 digit.
         </span>
-        <span ng-if="signupCtrl.validCategory != undefined && signupCtrl.validCategory == false">
+        <span ng-if="signupCtrl.isValidShortName != undefined && signupCtrl.isValidShortName == false">
           No such menu number exists
         </span>
         <br>
 
       <button
-        ng-disabled="userForm.$invalid && !signupCtrl.validCategory"
+        ng-disabled="userForm.$invalid && !signupCtrl.isValidShortName"
         ng-click="signupCtrl.checkIfItemExists(signupCtrl.user.short_name, signupCtrl.saveUser)">Submit</button>
 
-      <div ng-if="userForm.$valid && userForm.$submitted && signupCtrl.validCategory">
+      <div ng-if="userForm.$valid && userForm.$submitted && signupCtrl.isValidShortName">
         Your information has been saved
       </div>
     </form>

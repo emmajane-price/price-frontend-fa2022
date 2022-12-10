@@ -5,8 +5,8 @@
     {{ userInfoCtrl.user.email }} <br>
     {{ userInfoCtrl.user.phone }} <br>
     <h3>Your favorite item: </h3>
-    {{ userInfoCtrl.user.favoriteItem.name }}: {{ userInfoCtrl.user.favoriteItem.description }}
-    <img class="img-responsive" width="250" height="150" ng-src="images/menu/{{userInfoCtrl.favoriteCategoryShortName}}/{{userInfoCtrl.user.favoriteItem.short_name}}.jpg" alt="{{userInfoCtrl.user.favoriteItem.name}}">
+    {{ userInfoCtrl.categoryData.name }}: {{ userInfoCtrl.categoryData.description }}
+    <img class="img-responsive" width="250" height="150" ng-src="images/menu/{{userInfoCtrl.favoriteCategoryShortName}}/{{userInfoCtrl.categoryData.short_name}}.jpg" alt="{{userInfoCtrl.categoryData.name}}">
   </div>
   <div ng-if="userInfoCtrl.user == null">
     Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>

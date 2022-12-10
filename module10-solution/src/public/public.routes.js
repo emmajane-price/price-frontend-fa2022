@@ -55,6 +55,9 @@ function routeConfig ($stateProvider) {
       resolve: {
         user: ['UserService', function (UserService) {
           return UserService.getUser();
+        }],
+        categoryData: ['UserService', function (UserService) {
+          return UserService.getCurrentUsersItem();
         }]
       }
     })

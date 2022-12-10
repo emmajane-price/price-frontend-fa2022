@@ -4,11 +4,12 @@
 angular.module('public')
 .controller('UserInfoController', UserInfoController);
 
-UserInfoController.$inject = ['user'];
+UserInfoController.$inject = ['user', 'categoryData'];
 function UserInfoController(user) {
   var $ctrl = this;
   $ctrl.user = user;
-  $ctrl.favoriteCategoryShortName = $ctrl.user !== null ? $ctrl.user.favoriteItem.short_name.split(/(\d+)/)[0] : '';
+  $ctrl.categoryData = categoryData;
+  $ctrl.favoriteCategoryShortName = $ctrl.categoryData !== null ? $ctrl.categoryData.short_name.split(/(\d+)/)[0] : '';
 }
 
 })();
