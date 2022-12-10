@@ -38,9 +38,9 @@
 
       <input type="text" name="short_name" placeholder="Menu Number (AB123)"
         ng-model="signupCtrl.user.short_name" ng-keyup="signupCtrl.checkIfItemExists(signupCtrl.user.short_name)"
-        pattern="([a-zA-Z]{1,2})(\d{1,2})"
+        ng-pattern="([a-zA-Z]{1,2})(\d{1,2})"
         required>
-        <span ng-if="userForm.lastname.$error.required && userForm.short_name.$touched && userForm.short_name.$invalid">
+        <span ng-if="userForm.lastname.$error.required || userForm.short_name.$invalid || userForm.short_name.$error.pattern">
           Must enter a menu number in the 1 or 2 letters followed by a 1 or 2 digit.
         </span>
         <span ng-if="signupCtrl.isValidShortName != undefined && signupCtrl.isValidShortName == false">
