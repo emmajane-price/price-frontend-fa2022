@@ -30,7 +30,7 @@ function UserService($http, ApiPath) {
 
   service.getItemFromServer = function(short_name) {
     var categoryItem = short_name.split(/(\d+)/);
-    var category = categoryItem[0];
+    var category = angular.uppercase(categoryItem[0]);
     var item = parseInt(categoryItem[1]) - 1;
     var response = $http.get(ApiPath + `/menu_items/${category}/menu_items/${item}.json`);
     return response;
